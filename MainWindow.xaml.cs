@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KaraManager.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,24 @@ namespace KaraManager
         }
         private void AdminLoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            AdminMenu adm = new AdminMenu();
-            Application.Current.MainWindow.Content = adm.Content;
-            Application.Current.MainWindow.Title = "Admin Menu";
+            Account accountInput = new Account();
+            accountInput.Username = txtUsername.Text;
+            accountInput.Password = txtPassword.Password;
+            var AccountDb = new KaraManagerContext();
+            foreach (var account in AccountDb.Accounts.ToList())
+            {
+                if(accountInput.Username.Equals(account.Username) && accountInput.Password.Equals(account.Password))
+                {
+                    AdminMenu adm = new AdminMenu();
+                    Application.Current.MainWindow.Content = adm.Content;
+                    Application.Current.MainWindow.Title = "Admin Menu";
+                }
+                else
+                {
+                    MessageBox.Show("oof");
+                }
+            }
+            
         }
 
         private void GuestLoginBtn_Click(object sender, RoutedEventArgs e)

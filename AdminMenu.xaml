@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="AdminMenu" Height="450" Width="800">
     <Grid>
-        <Label Content="This is admin menu" HorizontalAlignment="Left" Margin="64,48,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAdminLogout" Content="Logout" HorizontalAlignment="Left" Margin="176,302,0,0" VerticalAlignment="Top" Click="btnAdminLogout_Click"/>
+        <Label Content="KaraManager(Admin)" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,0.533"/>
+        <Button x:Name="btnAdminLogout" Content="Logout" HorizontalAlignment="Center" Margin="0,338,0,0" VerticalAlignment="Top" Click="btnAdminLogout_Click" RenderTransformOrigin="0.526,0.633"/>
+        <Button x:Name="btnRooms" Content="Manage Rooms" HorizontalAlignment="Left" Margin="264,126,0,0" VerticalAlignment="Top" Width="104" Height="35" Click="btnRooms_Click"/>
+        <Button x:Name="btnInvoice" Content="View Invoices" HorizontalAlignment="Left" Margin="433,126,0,0" VerticalAlignment="Top" Height="35" Width="104" Click="btnInvoice_Click"/>
+        <Button x:Name="btnIncome" Content="View Income" HorizontalAlignment="Left" Margin="264,253,0,0" VerticalAlignment="Top" Height="35" Width="104" Click="btnIncome_Click"/>
+        <Button x:Name="btnMessage" Content="Messages" HorizontalAlignment="Left" Margin="433,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.563" Height="35" Width="104" Click="btnMessage_Click"/>
 
     </Grid>
 </Window>

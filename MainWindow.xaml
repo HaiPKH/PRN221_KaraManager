@@ -13,7 +13,7 @@
         <Label Content="Username" HorizontalAlignment="Left" Margin="213,145,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="213,221,0,0" VerticalAlignment="Top" Height="33" FontWeight="Bold"/>
         <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="356,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" Height="26"/>
-        <PasswordBox x:Name="txtPassword" Margin="356,226,207,185"/>
+        <PasswordBox x:Name="txtPassword" Margin="356,217,193,167"/>
         <Label Content="Welcome!" HorizontalAlignment="Left" Margin="394,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.016,0.772" FontWeight="Bold" FontSize="18" IsEnabled="False" FontStyle="Italic"/>
         <Label Content="Please log in to proceed" HorizontalAlignment="Left" Margin="372,63,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
         <Label x:Name="lbWarning" Content="" HorizontalAlignment="Left" Margin="276,254,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.29,0.063" Width="300"/>

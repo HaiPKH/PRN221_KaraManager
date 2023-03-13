@@ -30,5 +30,27 @@ namespace KaraManager
             Application.Current.MainWindow.Content = mw.Content;
             Application.Current.MainWindow.Title = "Holy fuck i'm cumming";
         }
+
+        private void btnRooms_Click(object sender, RoutedEventArgs e)
+        {
+            Rooms rooms = new Rooms();
+            Application.Current.MainWindow.Content = rooms.Content;
+            Application.Current.MainWindow.Title = "Manage Rooms";
+        }
+
+        private void btnInvoice_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnIncome_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnMessage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

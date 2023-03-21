@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager"
         mc:Ignorable="d"
-        Title="CreateInvoice" Height="321" Width="348">
-    <Grid x:Name="lbTotalCost" HorizontalAlignment="Center" Width="348" Height="311" VerticalAlignment="Top">
+        Title="CreateInvoice" Height="359" Width="348">
+    <Grid HorizontalAlignment="Center" Width="348" Height="344" VerticalAlignment="Top">
         <Label Content="Time Started:" HorizontalAlignment="Left" Margin="39,90,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbTimeStarted" Content="" HorizontalAlignment="Left" Margin="182,90,0,0" VerticalAlignment="Top" Width="96"/>
         <Label Content="Date Created: " HorizontalAlignment="Left" Margin="39,44,0,0" VerticalAlignment="Top"/>
@@ -16,10 +16,13 @@
         <Label Content="Time Elapsed:" HorizontalAlignment="Left" Margin="39,171,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbTimeElapsed" Content="" HorizontalAlignment="Left" Margin="182,171,0,0" VerticalAlignment="Top" Width="96"/>
         <Label Content="Other costs:" HorizontalAlignment="Left" Margin="39,212,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtOtherCost" HorizontalAlignment="Left" Margin="182,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtOtherCost" HorizontalAlignment="Left" Margin="182,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtOtherCost_TextChanged"/>
         <Label Content="Total Cost" HorizontalAlignment="Left" Margin="39,243,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <Label Content="Total Cost" HorizontalAlignment="Left" Margin="182,243,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic"/>
-        <Button x:Name="btnCreateInvoice" Content="Confirm" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Width="83"/>
+        <Label x:Name="lbTotalCost" Content="" HorizontalAlignment="Left" Margin="182,243,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" Width="120"/>
+        <Button x:Name="btnCreateInvoice" Content="Confirm" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Width="83" Click="btnCreateInvoice_Click"/>
+        <Label x:Name="lbRoomName" Content="Room " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="72"/>
+        <Label x:Name="lbPricePerHour" Content="" HorizontalAlignment="Left" Margin="192,10,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label x:Name="txtRid" Content="" HorizontalAlignment="Left" Margin="136,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
     </Grid>
 </Window>

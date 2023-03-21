@@ -40,7 +40,9 @@ namespace KaraManager
 
         private void btnInvoice_Click(object sender, RoutedEventArgs e)
         {
-
+            Invoices invoices = new Invoices();
+            Application.Current.MainWindow.Content = invoices.Content;
+            Application.Current.MainWindow.Title = "View Invoices";
         }
 
         private void btnIncome_Click(object sender, RoutedEventArgs e)

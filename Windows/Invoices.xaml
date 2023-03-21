@@ -1,0 +1,54 @@
+﻿<Window x:Class="KaraManager.Invoices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KaraManager"
+        mc:Ignorable="d"
+        Title="Invoices" Height="450" Width="962">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="557*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="283*"/>
+        </Grid.ColumnDefinitions>
+        <!--<StackPanel Name="spRoom" Background="LightBlue"  Orientation ="Vertical" 
+        HorizontalAlignment="Left" Width="400" Margin="0,2,0,215">
+            <Label Content="Room Number"/>
+            <TextBox x:Name="txtRoomNum" TextWrapping="Wrap" Width="404" Height="28"/>
+            <Label Content="Price Per Hour"/>
+            <TextBox x:Name="txtPricePerHour" TextWrapping="Wrap" Width="404" Height="28"/>
+
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  
+                            HorizontalAlignment="Left" Margin="10,10,0,-10">
+            <Button x:Name="btnInsert"  Width="80" Content="Insert" 
+                            Click="btnInsert_Click" Height="21"/>
+            <Button x:Name="btnUpdate"  Margin="10" Width="80"  Content="Update" 
+                            Click="btnUpdate_Click" Height="21"/>
+            <Button x:Name="btnDelete" Margin="10"  Width="80" Content="Delete" 
+                            Click="btnDelete_Click" Height="21"/>
+            <Button x:Name="btnBack" Content="Back to Menu" Width="80" Height="21" Click="btnBack_Click"/>
+        </StackPanel>-->
+        <ListView Margin="0,242,0,10" Name="lvInvoices" Grid.ColumnSpan="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Room Name" Width="75" 
+                                    DisplayMemberBinding="{Binding Path=RoomName}"/>
+                    <GridViewColumn Header="Date Created" Width="150"
+                                    DisplayMemberBinding="{Binding Path=Datecreated}"/>
+                    <GridViewColumn Header="Time Started" Width="150"
+                                    DisplayMemberBinding="{Binding Path=Timestarted}"/>
+                    <GridViewColumn Header="Time Ended" Width="150"
+                                    DisplayMemberBinding="{Binding Path=Timeended}"/>
+                    <GridViewColumn Header="Time Elapsed" Width="150"
+                                    DisplayMemberBinding="{Binding Path=Timeelapsed}"/>
+                    <GridViewColumn Header="Other Costs" Width="150"
+                                    DisplayMemberBinding="{Binding Path=Othercost}"/>
+                    <GridViewColumn Header="Total Cost" Width="100"
+                                    DisplayMemberBinding="{Binding Path=Totalcost}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

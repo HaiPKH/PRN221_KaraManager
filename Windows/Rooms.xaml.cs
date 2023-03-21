@@ -1,4 +1,5 @@
 ﻿using KaraManager.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -78,11 +79,18 @@ namespace KaraManager
                 {
                     throw new Exception("Room name already existed.");
                 }
+                if (room.Priceperhour <= 0)
+                {
+                    throw new Exception("Price cannot be zero or negative.");
+                }
                 else
                 {
                     KaraManagerContext context = new KaraManagerContext();
                     context.Rooms.Add(room);
                     context.SaveChanges();
+                    txtPricePerHour.Text = "";
+                    txtRoomNum.Text = "";
+                    spRoom.Background = new SolidColorBrush(Colors.LightBlue);
                     LoadRoomList();
                 }               
             }
@@ -94,42 +102,72 @@ namespace KaraManager
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            Room room = lvRooms.SelectedItem as Room;
+            room.Name = txtRoomNum.Text;
+            if (GetRoomByName(room.Name) != null)
+            {
+                MessageBox.Show("Room name already existed.", "Warning");
+                return;
+            }
+            room.Priceperhour = int.Parse(txtPricePerHour.Text);
+            if(room.Priceperhour <= 0)
+            {
+                MessageBox.Show("Price cannot be zero or negative", "Warning");
+                return;
+            }
+            KaraManagerContext context = new KaraManagerContext();
+            context.Entry<Room>(room).State = EntityState.Modified;
+            context.SaveChanges();
+            LoadRoomList();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            KaraManagerContext context = new KaraManagerContext();
+            Room room = lvRooms.SelectedItem as Room;
+            context.Rooms.Remove(room);
+            context.SaveChanges();
+            txtPricePerHour.Text = "";
+            txtRoomNum.Text = "";
+            spRoom.Background = new SolidColorBrush(Colors.LightBlue);
+            LoadRoomList();
         }
 
         private void lvRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Room room = lvRooms.SelectedItem as Room;
-            txtRoomNum.Text = room.Name;
-            txtPricePerHour.Text = room.Priceperhour.ToString();
-            if(room.Isused == false)
+            if(room != null)
             {
-                spRoom.Background = new SolidColorBrush(Colors.Green);
-                btnReserveRoom.Visibility = Visibility.Visible;
-                btnReserveRoom.Content = "Room vacant";
+                txtRoomNum.Text = room.Name;
+                txtPricePerHour.Text = room.Priceperhour.ToString();
+                if(room.Isused == false)
+                {
+                    spRoom.Background = new SolidColorBrush(Colors.Green);
+                    btnReserveRoom.Visibility = Visibility.Visible;
+                    btnReserveRoom.Content = "Room vacant";
+                }
+                else {
+                    spRoom.Background = new SolidColorBrush(Colors.Red);
+                    btnReserveRoom.Visibility = Visibility.Visible;
+                    btnReserveRoom.Content = "Create Invoice";
+                }
             }
-            else {
-                spRoom.Background = new SolidColorBrush(Colors.Red);
-                btnReserveRoom.Visibility = Visibility.Visible;
-                btnReserveRoom.Content = "Create Invoice";
-            }
+            
         }
 
         private void btnReserveRoom_Click(object sender, RoutedEventArgs e)
         {
             if(btnReserveRoom.Content == "Room vacant")
             {
+                KaraManagerContext context = new KaraManagerContext();
                 Room room = lvRooms.SelectedItem as Room;
                 room.Timestarted = DateTime.Now;
-                room.Isused = true;
+                room.Isused = true;               
+                context.Entry<Room>(room).State = EntityState.Modified;
+                context.SaveChanges();
                 spRoom.Background = new SolidColorBrush(Colors.Red);
                 btnReserveRoom.Content = "Create Invoice";
-                MessageBox.Show(room.Timestarted.ToString());
+                MessageBox.Show($"Reserved at {room.Timestarted.ToString()}", "Reserve success");
                 
             }
             else if(btnReserveRoom.Content == "Create Invoice")
@@ -139,15 +177,20 @@ namespace KaraManager
                 btnReserveRoom.Content = "Room vacant";
                 room.Isused = false;
                 TimeSpan ts = (TimeSpan)(DateTime.Now - room.Timestarted);
-                //MessageBox.Show(room.Rid.ToString() + "\n" + ts.ToString() + "\n" + DateTime.Now.ToShortDateString()
-                //+ "\n" + DateTime.Now.ToString("HH:mm:ss") + "\n" + room.Timestarted, "Invoice attributes");
+                KaraManagerContext context = new KaraManagerContext();
+                context.Entry<Room>(room).State = EntityState.Modified;
+                context.SaveChanges();
                 CreateInvoice createInvoice = new CreateInvoice();
+                createInvoice.txtRid.Content = room.Rid;
+                createInvoice.lbRoomName.Content += room.Name;
+                createInvoice.lbPricePerHour.Content = room.Priceperhour.ToString();
                 createInvoice.lbDateCreated.Content = room.Timestarted.Value.ToShortDateString();
                 createInvoice.lbTimeStarted.Content = room.Timestarted;
                 createInvoice.lbTimeEnded.Content = DateTime.Now;
                 createInvoice.lbTimeElapsed.Content = ts;
                 createInvoice.Show();
-                
+                //MessageBox.Show(room.Rid.ToString() + "\n" + ts.ToString() + "\n" + DateTime.Now.ToShortDateString()
+                //+ "\n" + DateTime.Now.ToString("HH:mm:ss") + "\n" + room.Timestarted, "Invoice attributes");
             }
         }
 

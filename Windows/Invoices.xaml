@@ -5,32 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager"
         mc:Ignorable="d"
-        Title="Invoices" Height="450" Width="962">
+        Title="Invoices" Height="709" Width="962"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="557*"/>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="283*"/>
         </Grid.ColumnDefinitions>
-        <!--<StackPanel Name="spRoom" Background="LightBlue"  Orientation ="Vertical" 
+        <StackPanel Name="spRoom" Background="LightBlue"  Orientation ="Vertical" 
         HorizontalAlignment="Left" Width="400" Margin="0,2,0,215">
             <Label Content="Room Number"/>
-            <TextBox x:Name="txtRoomNum" TextWrapping="Wrap" Width="404" Height="28"/>
-            <Label Content="Price Per Hour"/>
-            <TextBox x:Name="txtPricePerHour" TextWrapping="Wrap" Width="404" Height="28"/>
+            <TextBox x:Name="txtRoomNum" TextWrapping="Wrap" Width="404" Height="28" IsReadOnly="True"/>
+            <Label Content="Date Created"/>
+            <TextBox x:Name="txtDateCreated" TextWrapping="Wrap" Width="404" Height="28" IsReadOnly="True"/>
+            <Label Content="Time Started"/>
+            <TextBox x:Name="txtTimestarted" TextWrapping="Wrap" Width="404" Height="28" IsReadOnly="True"/>
+            <Label Content="Time Ended"/>
+            <TextBox x:Name="txtTimeended" TextWrapping="Wrap" Width="404" Height="28" IsReadOnly="True"/>
+            <Label Content="Time Elapsed"/>
+            <TextBox x:Name="txtTimeelapsed" TextWrapping="Wrap" Width="404" Height="28" IsReadOnly="True"/>
+            <Label Content="Other costs"/>
+            <TextBox x:Name="txtOthercost" TextWrapping="Wrap" Width="404" Height="28" TextChanged="txtOthercost_TextChanged"/>
+            <Label Content="Total cost"/>
+            <TextBox x:Name="txtTotalcost" TextWrapping="Wrap" Width="404" Height="28" IsReadOnly="True"/>
+
 
         </StackPanel>
         <StackPanel Orientation="Horizontal"  
-                            HorizontalAlignment="Left" Margin="10,10,0,-10">
-            <Button x:Name="btnInsert"  Width="80" Content="Insert" 
-                            Click="btnInsert_Click" Height="21"/>
-            <Button x:Name="btnUpdate"  Margin="10" Width="80"  Content="Update" 
-                            Click="btnUpdate_Click" Height="21"/>
-            <Button x:Name="btnDelete" Margin="10"  Width="80" Content="Delete" 
-                            Click="btnDelete_Click" Height="21"/>
-            <Button x:Name="btnBack" Content="Back to Menu" Width="80" Height="21" Click="btnBack_Click"/>
-        </StackPanel>-->
-        <ListView Margin="0,242,0,10" Name="lvInvoices" Grid.ColumnSpan="3">
+                            HorizontalAlignment="Left" Margin="10,347,0,240" Width="390">
+            <Button x:Name="btnUpdate" Width="80"  Content="Update" 
+                            Click="btnUpdate_Click" Height="21" Margin="10,5,5,0"/>
+            <Button x:Name="btnDelete"  Width="80" Content="Delete" 
+                            Click="btnDelete_Click" Height="21" Margin="5,5,5,0"/>
+            <Button x:Name="btnBack" Content="Back to Menu" Width="80" Height="21" Margin="5,5,5,0"
+                            Click="btnBack_Click"/>
+            <Button x:Name="btnRefresh" Content="Refresh" Width="80" Height="21" Margin="5,5,5,0"
+                            Click="btnRefresh_Click"/>
+        </StackPanel>
+        <ListView Margin="0,426,0,10" Name="lvInvoices" Grid.ColumnSpan="3" SelectionChanged="lvInvoices_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Room Name" Width="75" 
@@ -50,5 +63,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Label Grid.Column="2" Content="Showing" HorizontalAlignment="Left" Margin="35,383,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.55,0.549"/>
+        <TextBox x:Name="txtRecordsNum" Grid.Column="2" HorizontalAlignment="Left" Margin="96,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Grid.Column="2" Content="Records" HorizontalAlignment="Left" Margin="221,383,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

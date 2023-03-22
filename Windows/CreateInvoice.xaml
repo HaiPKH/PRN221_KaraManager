@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager"
         mc:Ignorable="d"
-        Title="CreateInvoice" Height="359" Width="348">
+        Title="CreateInvoice" Height="359" Width="348"
+        ResizeMode="NoResize">
     <Grid HorizontalAlignment="Center" Width="348" Height="344" VerticalAlignment="Top">
         <Label Content="Time Started:" HorizontalAlignment="Left" Margin="39,90,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbTimeStarted" Content="" HorizontalAlignment="Left" Margin="182,90,0,0" VerticalAlignment="Top" Width="96"/>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager"
         mc:Ignorable="d"
-        Title="GuestMenu" Height="450" Width="800">
+        Title="GuestMenu" Height="450" Width="800"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="This is guest menu" HorizontalAlignment="Left" Margin="68,67,0,0" VerticalAlignment="Top"/>
 

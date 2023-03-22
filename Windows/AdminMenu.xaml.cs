@@ -42,6 +42,8 @@ namespace KaraManager
         {
             Invoices invoices = new Invoices();
             Application.Current.MainWindow.Content = invoices.Content;
+            Application.Current.MainWindow.Height= invoices.Height;
+            Application.Current.MainWindow.Width= invoices.Width;
             Application.Current.MainWindow.Title = "View Invoices";
         }
 

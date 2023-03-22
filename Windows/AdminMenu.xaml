@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager"
         mc:Ignorable="d"
-        Title="AdminMenu" Height="450" Width="800">
+        Title="AdminMenu" Height="450" Width="800"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="KaraManager(Admin)" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,0.533"/>
         <Button x:Name="btnAdminLogout" Content="Logout" HorizontalAlignment="Center" Margin="0,338,0,0" VerticalAlignment="Top" Click="btnAdminLogout_Click" RenderTransformOrigin="0.526,0.633"/>

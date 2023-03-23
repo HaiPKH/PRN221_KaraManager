@@ -48,6 +48,11 @@ namespace KaraManager.Model
                     .HasMaxLength(150)
                     .IsUnicode(false)
                     .HasColumnName("password");
+
+                entity.Property(e => e.Role)
+                    .HasMaxLength(10)
+                    .HasColumnName("role")
+                    .IsFixedLength();
             });
 
             modelBuilder.Entity<Invoice>(entity =>

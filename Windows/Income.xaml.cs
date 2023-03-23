@@ -86,6 +86,7 @@ namespace KaraManager.Windows
         }
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {
+            //MessageBox.Show(Application.Current.Properties["Username"] as string, "Who am I?");
             LoadInvoiceList();
         }
     }

@@ -34,28 +34,50 @@ namespace KaraManager
             Account accountInput = new Account();
             accountInput.Username = txtUsername.Text;
             accountInput.Password = txtPassword.Password;
+            accountInput.Role = "admin";
             var AccountDb = new KaraManagerContext();
+            bool userFound = false;
             foreach (var account in AccountDb.Accounts.ToList())
             {
-                if(accountInput.Username.Equals(account.Username) && accountInput.Password.Equals(account.Password))
+                if(accountInput.Username.Equals(account.Username) && accountInput.Password.Equals(account.Password) && accountInput.Role.Equals(account.Role.Trim()))
                 {
                     AdminMenu adm = new AdminMenu();
                     Application.Current.MainWindow.Content = adm.Content;
                     Application.Current.MainWindow.Title = "Admin Menu";
+                    Application.Current.Properties["Username"] = txtUsername.Text;
+                    userFound = true;
                 }
-                else
-                {
-                    MessageBox.Show("oof");
-                }
+            }
+            if (!userFound)
+            {
+                MessageBox.Show("Login failed!", "Warning");
             }
             
         }
 
         private void GuestLoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            GuestMenu gm = new GuestMenu();
-            Application.Current.MainWindow.Content = gm.Content;
-            Application.Current.MainWindow.Title = "Guest Menu";
+            Account accountInput = new Account();
+            accountInput.Username = txtUsername.Text;
+            accountInput.Password = txtPassword.Password;
+            accountInput.Role = "guest";
+            var AccountDb = new KaraManagerContext();
+            bool userFound = false;
+            foreach (var account in AccountDb.Accounts.ToList())
+            {
+                if (accountInput.Username.Equals(account.Username) && accountInput.Password.Equals(account.Password) && accountInput.Role.Equals(account.Role.Trim()))
+                {
+                    GuestMenu gm = new GuestMenu();
+                    Application.Current.MainWindow.Content = gm.Content;
+                    Application.Current.MainWindow.Title = "Guest Menu";
+                    Application.Current.Properties["Username"] = txtUsername.Text;
+                    userFound = true;
+                }
+            }
+            if (!userFound)
+            {
+                MessageBox.Show("Login failed!", "Warning");
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)

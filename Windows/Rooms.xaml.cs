@@ -75,6 +75,7 @@ namespace KaraManager
             try
             {
                 Room room = GetRoomObject();
+                Account account = new Account();
                 if(GetRoomByName(room.Name) != null)
                 {
                     throw new Exception("Room name already existed.");
@@ -86,10 +87,14 @@ namespace KaraManager
                 else
                 {
                     KaraManagerContext context = new KaraManagerContext();
+                    account.Username = room.Name;
+                    account.Password = "guest";
+                    account.Role = "guest";
                     context.Rooms.Add(room);
+                    context.Accounts.Add(account);
                     context.SaveChanges();
-                    txtPricePerHour.Text = "";
-                    txtRoomNum.Text = "";
+                    txtPricePerHour.Clear();
+                    txtRoomNum.Clear();
                     spRoom.Background = new SolidColorBrush(Colors.LightBlue);
                     LoadRoomList();
                 }               
@@ -123,12 +128,13 @@ namespace KaraManager
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("This will also remove all invoices related to the room", "Delete Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = MessageBox.Show("This will also remove the correspond account and all invoices related to the room", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                  KaraManagerContext context = new KaraManagerContext();
                 Room room = lvRooms.SelectedItem as Room;
                 context.Rooms.Remove(room);
+                context.Accounts.RemoveRange(context.Accounts.Where(x => x.Username == room.Name));
                 context.Invoices.RemoveRange(context.Invoices.Where(x => x.Rid == room.Rid));
                 context.SaveChanges();
                 txtPricePerHour.Text = "";

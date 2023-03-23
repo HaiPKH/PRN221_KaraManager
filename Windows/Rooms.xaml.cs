@@ -32,7 +32,7 @@ namespace KaraManager
         private void LoadRoomList()
         {
             KaraManagerContext context = new KaraManagerContext();
-            lvRooms.ItemsSource = context.Rooms.ToList();
+            lvRooms.ItemsSource = context.Rooms.OrderBy(r => r.Name).ToList();
         }
 
         private Room GetRoomObject()
@@ -123,14 +123,24 @@ namespace KaraManager
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            KaraManagerContext context = new KaraManagerContext();
-            Room room = lvRooms.SelectedItem as Room;
-            context.Rooms.Remove(room);
-            context.SaveChanges();
-            txtPricePerHour.Text = "";
-            txtRoomNum.Text = "";
-            spRoom.Background = new SolidColorBrush(Colors.LightBlue);
-            LoadRoomList();
+            MessageBoxResult messageBoxResult = MessageBox.Show("This will also remove all invoices related to the room", "Delete Confirmation", MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                 KaraManagerContext context = new KaraManagerContext();
+                Room room = lvRooms.SelectedItem as Room;
+                context.Rooms.Remove(room);
+                context.Invoices.RemoveRange(context.Invoices.Where(x => x.Rid == room.Rid));
+                context.SaveChanges();
+                txtPricePerHour.Text = "";
+                txtRoomNum.Text = "";
+                spRoom.Background = new SolidColorBrush(Colors.LightBlue);           
+                LoadRoomList();
+            }
+            else
+            {
+                return;
+            }
+               
         }
 
         private void lvRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)

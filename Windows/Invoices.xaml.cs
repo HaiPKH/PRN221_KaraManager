@@ -125,19 +125,19 @@ namespace KaraManager
             invoice.Totalcost = int.Parse(txtTotalcost.Text);
             context.Invoices.Remove(invoice);
             context.SaveChanges();
-            txtRoomNum.Text = "";
-            txtDateCreated.Text = "";
-            txtTimestarted.Text= "";
-            txtTimeended.Text= "";
-            txtTimeelapsed.Text= "";
-            txtOthercost.Text= "";
-            txtTotalcost.Text= "";
+            txtRoomNum.Clear();
+            txtDateCreated.Clear();
+            txtTimestarted.Clear();
+            txtTimeended.Clear();
+            txtTimeelapsed.Clear();
+            txtOthercost.Clear();
+            txtTotalcost.Clear();
             LoadInvoiceList(int.Parse(txtRecordsNum.Text));
             }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Warning");
-                //LoadInvoiceList(0);
+                LoadInvoiceList(0);
             }
         }
 

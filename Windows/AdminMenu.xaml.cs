@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KaraManager.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,11 @@ namespace KaraManager
 
         private void btnIncome_Click(object sender, RoutedEventArgs e)
         {
-
+            Income income = new Income();
+            Application.Current.MainWindow.Content = income.Content;
+            Application.Current.MainWindow.Height= income.Height;
+            Application.Current.MainWindow.Width= income.Width;
+            Application.Current.MainWindow.Title = "View Income";
         }
 
         private void btnMessage_Click(object sender, RoutedEventArgs e)

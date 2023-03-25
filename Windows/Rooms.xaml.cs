@@ -205,8 +205,6 @@ namespace KaraManager
                 createInvoice.lbTimeEnded.Content = DateTime.Now;
                 createInvoice.lbTimeElapsed.Content = ts;
                 createInvoice.Show();
-                //MessageBox.Show(room.Rid.ToString() + "\n" + ts.ToString() + "\n" + DateTime.Now.ToShortDateString()
-                //+ "\n" + DateTime.Now.ToString("HH:mm:ss") + "\n" + room.Timestarted, "Invoice attributes");
             }
         }
 

@@ -59,7 +59,11 @@ namespace KaraManager
 
         private void btnMessage_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminMessage message = new AdminMessage();
+            Application.Current.MainWindow.Content = message.Content;
+            Application.Current.MainWindow.Height= message.Height;
+            Application.Current.MainWindow.Width= message.Width;
+            Application.Current.MainWindow.Title = "Messages";
         }
     }
 }

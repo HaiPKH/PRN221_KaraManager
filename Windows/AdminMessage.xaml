@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="AdminMessage" Height="450" Width="800">
     <Grid>
-        
+        <ListView x:Name="lvRooms" Margin="0,0,556,0" SelectionChanged="lvRooms_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Rooms" Width="240" 
+                                    DisplayMemberBinding="{Binding Path=Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="lvMessages" Margin="244,0,0,81">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Time Sent" Width="100" 
+                                    DisplayMemberBinding="{Binding Path=Timesent}"/>
+                    <GridViewColumn Header="Sender" Width="100" 
+                                    DisplayMemberBinding="{Binding Path=Sendername}"/>
+                    <GridViewColumn Header="Content" Width="350" 
+                                    DisplayMemberBinding="{Binding Path=Content}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Margin="280,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Height="20"/>
+        <Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="724,378,0,0" VerticalAlignment="Top" Width="51" Height="20" Click="btnSend_Click"/>
+
     </Grid>
 </Window>

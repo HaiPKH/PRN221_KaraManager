@@ -18,5 +18,6 @@
         <Label Content="Welcome!" HorizontalAlignment="Left" Margin="394,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.016,0.772" FontWeight="Bold" FontSize="18" IsEnabled="False" FontStyle="Italic"/>
         <Label Content="Please log in to proceed" HorizontalAlignment="Left" Margin="372,63,0,0" VerticalAlignment="Top" IsEnabled="False" FontWeight="Bold"/>
         <Label x:Name="lbWarning" Content="" HorizontalAlignment="Left" Margin="276,254,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.29,0.063" Width="300"/>
+        <Label Foreground ="Red" Content="*The username for guests are the rooms they are currently in with the password &quot;guest&quot;" HorizontalAlignment="Left" Margin="176,352,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

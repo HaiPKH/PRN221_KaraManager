@@ -10,8 +10,7 @@
     <Grid>
 
         <Label Content="KaraManager(Guest)" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.512,0.533"/>
-        <Button x:Name="btnGuestLogout" Content="Logout" HorizontalAlignment="Center" Margin="0,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,0.633"/>
-        <Button x:Name="btnRooms" Content="Manage Rooms" HorizontalAlignment="Left" Margin="264,126,0,0" VerticalAlignment="Top" Width="104" Height="35" Click="btnRooms_Click"/>
-        <Button x:Name="btnMessage" Content="Messages" HorizontalAlignment="Left" Margin="429,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.563" Height="35" Width="104" Click="btnMessage_Click"/>
+        <Button x:Name="btnGuestLogout" Content="Logout" HorizontalAlignment="Center" Margin="0,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="btnGuestLogout_Click"/>
+        <Button x:Name="btnMessage" Content="Messages" HorizontalAlignment="Center" Margin="0,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.563" Height="35" Width="104" Click="btnMessage_Click"/>
     </Grid>
 </Window>

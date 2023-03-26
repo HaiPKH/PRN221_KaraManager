@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KaraManager.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,22 @@ namespace KaraManager
         public GuestMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnMessage_Click(object sender, RoutedEventArgs e)
+        {
+            GuestMessage message = new GuestMessage();
+            Application.Current.MainWindow.Content = message.Content;
+            Application.Current.MainWindow.Height= message.Height;
+            Application.Current.MainWindow.Width= message.Width;
+            Application.Current.MainWindow.Title = "Messages";
+        }
+
+        private void btnGuestLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            Application.Current.MainWindow.Content = mw.Content;
+            Application.Current.MainWindow.Title = "Holy fuck i'm cumming";
         }
     }
 }

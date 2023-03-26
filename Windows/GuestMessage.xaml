@@ -1,17 +1,17 @@
-﻿<Window x:Class="KaraManager.Windows.AdminMessage"
+﻿<Window x:Class="KaraManager.Windows.GuestMessage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager.Windows"
         mc:Ignorable="d"
-        Title="AdminMessage" Height="450" Width="800">
+        Title="GuestMessage" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="lvRooms" Margin="0,0,556,0" SelectionChanged="lvRooms_SelectionChanged">
+        <ListView x:Name="lvAdmins" Margin="0,0,556,0" SelectionChanged="lvAdmins_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Rooms" Width="240" 
-                                    DisplayMemberBinding="{Binding Path=Name}"/>
+                    <GridViewColumn Header="Admins" Width="240" 
+                                    DisplayMemberBinding="{Binding Path=Username}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -30,6 +30,5 @@
         <TextBox x:Name="txtMessage" Visibility="Hidden" HorizontalAlignment="Left" Margin="280,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Height="20"/>
         <Button x:Name="btnSend" Visibility="Hidden"  Content="Send" HorizontalAlignment="Left" Margin="724,368,0,0" VerticalAlignment="Top" Width="51" Height="20" Click="btnSend_Click"/>
         <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="489,393,0,0" VerticalAlignment="Top" Width="66" Click="btnBack_Click"/>
-
     </Grid>
 </Window>

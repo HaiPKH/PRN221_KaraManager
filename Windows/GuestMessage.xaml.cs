@@ -1,6 +1,6 @@
 ﻿using KaraManager.Model;
-using Microsoft.AspNetCore.SignalR.Client;
 using System;
+using Microsoft.AspNetCore.SignalR.Client;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace KaraManager.Windows
 {
     /// <summary>
-    /// Interaction logic for AdminMessage.xaml
+    /// Interaction logic for GuestMessage.xaml
     /// </summary>
-    public partial class AdminMessage : Window
+    public partial class GuestMessage : Window
     {
         KaraManagerContext context = new KaraManagerContext();
         HubConnection connection;
         private static object _syncLock = new object();
-        public AdminMessage()
+        public GuestMessage()
         {
             InitializeComponent();
             connection = new HubConnectionBuilder()
@@ -32,7 +32,7 @@ namespace KaraManager.Windows
                 .Build();
             connection.StartAsync().ContinueWith(task =>
             {
-                if(task.Exception != null)
+                if (task.Exception != null)
                 {
                     MessageBox.Show(task.Exception + "\n" +task.Exception.StackTrace, "Warning");
                     connection.StartAsync();
@@ -45,33 +45,36 @@ namespace KaraManager.Windows
 
                                        {
                                            //MessageBox.Show("A message was received");
-                                           Room room = lvRooms.SelectedItem as Room;
+                                           Account acc = lvAdmins.SelectedItem as Account;
                                            lvMessages.ItemsSource = context.Messages
                                            .Where(m => m.Sendername == Application.Current.Properties["Username"] as string &&
-                                                       m.Receivername == room.Name
+                                                       m.Receivername == acc.Username
                                                        ||
-                                                       m.Sendername == room.Name &&
-                                                       m.Receivername == Application.Current.Properties["Username"] as string)
+                                                       m.Sendername == acc.Username &&
+                                                       m.Receivername == Application.Current.Properties["Username"] as string
+                                                       )
                                            .OrderBy(m => m.Timesent)
                                            .ToList();
                                        }));
                                    });
-            lvRooms.ItemsSource = context.Rooms.ToList().OrderBy(r => r.Name);
+
+            lvAdmins.ItemsSource = context.Accounts.Where(a => a.Role == "admin").ToList();
         }
 
-        private void lvRooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lvAdmins_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
                 txtMessage.Visibility = Visibility.Visible;
                 btnSend.Visibility = Visibility.Visible;
-                Room room = lvRooms.SelectedItem as Room;
+                Account acc = lvAdmins.SelectedItem as Account;
                 lvMessages.ItemsSource = context.Messages
                 .Where(m => m.Sendername == Application.Current.Properties["Username"] as string &&
-                            m.Receivername == room.Name 
-                            || 
-                            m.Sendername == room.Name &&
-                            m.Receivername == Application.Current.Properties["Username"] as string)
+                            m.Receivername == acc.Username 
+                            ||
+                            m.Sendername == acc.Username &&
+                            m.Receivername == Application.Current.Properties["Username"] as string
+                            )
                 .OrderBy(m => m.Timesent)
                 .ToList();
                 BindingOperations.EnableCollectionSynchronization(lvMessages.ItemsSource, _syncLock);
@@ -80,26 +83,25 @@ namespace KaraManager.Windows
             {
                 return;
             }
-            
         }
 
-        private async void btnSend_Click(object sender, RoutedEventArgs e)
+        private void btnSend_Click(object sender, RoutedEventArgs e)
         {
-            Room room = lvRooms.SelectedItem as Room;
+            Account acc = lvAdmins.SelectedItem as Account;
             Message message = new Message();
             message.Content = txtMessage.Text;
             message.Sendername = Application.Current.Properties["Username"] as string;
-            message.Receivername = room.Name;
+            message.Receivername = acc.Username;
             message.Timesent = DateTime.Now;
-            this.connection.InvokeAsync("SendMessage", message);           
+            this.connection.InvokeAsync("SendMessage", message);
             txtMessage.Clear();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            AdminMenu adm = new AdminMenu();
-            Application.Current.MainWindow.Content = adm.Content;
-            Application.Current.MainWindow.Title = "Admin Menu";
+            GuestMenu gm = new GuestMenu();
+            Application.Current.MainWindow.Content = gm.Content;
+            Application.Current.MainWindow.Title = "Guest Menu";
         }
     }
 }

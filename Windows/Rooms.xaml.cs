@@ -128,7 +128,7 @@ namespace KaraManager
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBoxResult = MessageBox.Show("This will also remove the correspond account and all invoices related to the room", "Delete Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult messageBoxResult = MessageBox.Show("This will also remove the corresponding account, messages and invoices", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                  KaraManagerContext context = new KaraManagerContext();
@@ -136,6 +136,7 @@ namespace KaraManager
                 context.Rooms.Remove(room);
                 context.Accounts.RemoveRange(context.Accounts.Where(x => x.Username == room.Name));
                 context.Invoices.RemoveRange(context.Invoices.Where(x => x.Rid == room.Rid));
+                context.Messages.RemoveRange(context.Messages.Where(x => x.Receivername == room.Name || x.Sendername == room.Name));
                 context.SaveChanges();
                 txtPricePerHour.Text = "";
                 txtRoomNum.Text = "";

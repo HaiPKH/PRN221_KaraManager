@@ -190,6 +190,9 @@ namespace KaraManager
             txtTotalcost.Text = totalcost.ToString();
             }catch (Exception ex)
             {
+                dynamic dynamic = lvInvoices.SelectedItem;
+                MessageBox.Show("Incorrect format of price", "Warning");
+                txtOthercost.Text = dynamic.Othercost.ToString();
                 return;
             }
         }

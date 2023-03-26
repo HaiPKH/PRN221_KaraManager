@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\haiph\\source\\repos\\KaraManager\\KaraManager.csproj": {}
+    "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraManager\\KaraManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\haiph\\source\\repos\\KaraManager\\KaraManager.csproj": {
+    "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraManager\\KaraManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\haiph\\source\\repos\\KaraManager\\KaraManager.csproj",
+        "projectUniqueName": "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraManager\\KaraManager.csproj",
         "projectName": "KaraManager",
-        "projectPath": "C:\\Users\\haiph\\source\\repos\\KaraManager\\KaraManager.csproj",
+        "projectPath": "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraManager\\KaraManager.csproj",
         "packagesPath": "C:\\Users\\haiph\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\haiph\\source\\repos\\KaraManager\\obj\\",
+        "outputPath": "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\haiph\\AppData\\Roaming\\NuGet\\NuGet.Config",

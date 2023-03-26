@@ -13,7 +13,7 @@
             <Label Content="Room Number"/>
             <TextBox x:Name="txtRoomNum" TextWrapping="Wrap" Width="404" Height="28"/>
             <Label Content="Price Per Hour"/>
-            <TextBox x:Name="txtPricePerHour" TextWrapping="Wrap" Width="404" Height="28"/>
+            <TextBox x:Name="txtPricePerHour" TextWrapping="Wrap" Width="404" Height="28" TextChanged="txtPricePerHour_TextChanged"/>
 
         </StackPanel>
         <StackPanel Orientation="Horizontal"  

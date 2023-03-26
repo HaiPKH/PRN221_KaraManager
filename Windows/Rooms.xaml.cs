@@ -107,23 +107,31 @@ namespace KaraManager
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Room room = lvRooms.SelectedItem as Room;
-            room.Name = txtRoomNum.Text;
-            if (GetRoomByName(room.Name) != null)
+            try
             {
-                MessageBox.Show("Room name already existed.", "Warning");
-                return;
+                Room room = lvRooms.SelectedItem as Room;           
+                if (txtRoomNum.Text != room.Name && GetRoomByName(txtRoomNum.Text) != null)
+                {
+                    MessageBox.Show("Room name already existed.", "Warning");
+                    return;
+                }
+                room.Name = txtRoomNum.Text;
+                if(int.Parse(txtPricePerHour.Text) <= 0)
+                {
+                    MessageBox.Show("Price cannot be zero or negative", "Warning");
+                    return;
+                }
+                room.Priceperhour = int.Parse(txtPricePerHour.Text);
+                KaraManagerContext context = new KaraManagerContext();
+                context.Entry<Room>(room).State = EntityState.Modified;
+                context.SaveChanges();
+                LoadRoomList();
             }
-            room.Priceperhour = int.Parse(txtPricePerHour.Text);
-            if(room.Priceperhour <= 0)
+            catch(Exception ex)
             {
-                MessageBox.Show("Price cannot be zero or negative", "Warning");
-                return;
+                MessageBox.Show("Unable to update room", "An error occurred");
             }
-            KaraManagerContext context = new KaraManagerContext();
-            context.Entry<Room>(room).State = EntityState.Modified;
-            context.SaveChanges();
-            LoadRoomList();
+            
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -131,7 +139,7 @@ namespace KaraManager
             MessageBoxResult messageBoxResult = MessageBox.Show("This will also remove the corresponding account, messages and invoices", "Delete Confirmation", MessageBoxButton.YesNo);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                 KaraManagerContext context = new KaraManagerContext();
+                KaraManagerContext context = new KaraManagerContext();
                 Room room = lvRooms.SelectedItem as Room;
                 context.Rooms.Remove(room);
                 context.Accounts.RemoveRange(context.Accounts.Where(x => x.Username == room.Name));
@@ -214,6 +222,11 @@ namespace KaraManager
             AdminMenu adm = new AdminMenu();
             Application.Current.MainWindow.Content = adm.Content;
             Application.Current.MainWindow.Title = "Admin Menu";
+        }
+
+        private void txtPricePerHour_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -125,7 +125,7 @@ namespace KaraManager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KaraManager;V1.0.0.0;component/windows/rooms.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KaraManager;component/windows/rooms.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\Rooms.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

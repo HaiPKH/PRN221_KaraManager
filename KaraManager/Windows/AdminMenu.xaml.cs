@@ -29,7 +29,7 @@ namespace KaraManager
         {
             MainWindow mw = new MainWindow();
             Application.Current.MainWindow.Content = mw.Content;
-            Application.Current.MainWindow.Title = "Holy fuck i'm cumming";
+            Application.Current.MainWindow.Title = "KaraManager 2.0";
         }
 
         private void btnRooms_Click(object sender, RoutedEventArgs e)
@@ -64,6 +64,12 @@ namespace KaraManager
             Application.Current.MainWindow.Height= message.Height;
             Application.Current.MainWindow.Width= message.Width;
             Application.Current.MainWindow.Title = "Messages";
+        }
+
+        private void btnAdminCreate_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAdmin cad = new CreateAdmin();
+            cad.Show();
         }
     }
 }

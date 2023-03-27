@@ -1,4 +1,5 @@
 ﻿using KaraManager.Model;
+using KaraManager.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,11 @@ namespace KaraManager
         public MainWindow()
         {
             InitializeComponent();
+            var AccountDb = new KaraManagerContext();
+            if (!AccountDb.Accounts.Where(a => a.Role == "admin").ToList().Any()){
+                btnAdminCreate.Visibility = Visibility.Visible;
+                btnAdminLogin.Visibility = Visibility.Hidden;
+            }
         }
         public void SetPage(UserControl page)
         {
@@ -83,6 +89,12 @@ namespace KaraManager
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void btnAdminCreate_Click(object sender, RoutedEventArgs e)
+        {
+            CreateAdmin cad = new CreateAdmin();
+            cad.Show();
         }
     }
 }

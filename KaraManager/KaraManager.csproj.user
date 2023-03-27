@@ -13,6 +13,9 @@
     <Compile Update="Windows\AdminMessage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\CreateAdmin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\CreateInvoice.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\AdminMessage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\CreateAdmin.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\CreateInvoice.xaml">

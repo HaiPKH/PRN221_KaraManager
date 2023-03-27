@@ -38,7 +38,7 @@ namespace KaraManager
         {
             MainWindow mw = new MainWindow();
             Application.Current.MainWindow.Content = mw.Content;
-            Application.Current.MainWindow.Title = "Holy fuck i'm cumming";
+            Application.Current.MainWindow.Title = "KaraManager 2.0";
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\haiph\source\repos\KaraManager_2.0\KaraManager\App.xaml
-9-1976194945
+10-523356777
 
-18534547520
+191380824128
 2291767802920
-Windows\AdminMenu.xaml;Windows\AdminMessage.xaml;Windows\CreateInvoice.xaml;Windows\GuestMenu.xaml;Windows\GuestMessage.xaml;Windows\Income.xaml;Windows\Invoices.xaml;Windows\MainWindow.xaml;Windows\Rooms.xaml;
+Windows\AdminMenu.xaml;Windows\AdminMessage.xaml;Windows\CreateAdmin.xaml;Windows\CreateInvoice.xaml;Windows\GuestMenu.xaml;Windows\GuestMessage.xaml;Windows\Income.xaml;Windows\Invoices.xaml;Windows\MainWindow.xaml;Windows\Rooms.xaml;
 
 False
 

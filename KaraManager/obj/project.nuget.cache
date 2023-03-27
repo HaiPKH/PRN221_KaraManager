@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IPn82yoX6unGLHNSmeNdR364m5BGNId9iij5N0G3x+oqcWxCNxs3mvExV07uKVYsjoIEY1LF3jAlZ7y1oiwCZA==",
+  "dgSpecHash": "Qrhs6+tFkqnRBitEmYUJge9ZuoHU2snA6ciFvtEMLI4l+ztH86tcf/QHZ/oD5ltWn4IiymH+AxgHahTX0D97+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraManager\\KaraManager.csproj",
+  "projectFilePath": "C:\\Users\\haiph\\source\\repos\\KaraManager_2.0\\KaraManager\\KaraManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\haiph\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\haiph\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\6.0.13\\microsoft.aspnetcore.connections.abstractions.6.0.13.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t7ECssvoPDzXdWBqt8uCl+Qd+Lwt56MomzS3InwuvILTmmTFt+8QjxAgVP3ExcPT4PW6ZNpzfRUuFfezsOa0lQ==",
+  "dgSpecHash": "DSag4h+WZKl0YZoqKEcETyQ9nylWISyMT4OPlvKZkLigEVT5q8V+NZE+JZWZidtn521UdYh0OL6/Ro2sKaaJtg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\haiph\\source\\repos\\KaraManager 2.0\\KaraChatServer\\KaraChatServer.csproj",
+  "projectFilePath": "C:\\Users\\haiph\\source\\repos\\KaraManager_2.0\\KaraChatServer\\KaraChatServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\haiph\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\6.0.13\\microsoft.aspnetcore.connections.abstractions.6.0.13.nupkg.sha512",
     "C:\\Users\\haiph\\.nuget\\packages\\microsoft.aspnetcore.http.connections.client\\6.0.13\\microsoft.aspnetcore.http.connections.client.6.0.13.nupkg.sha512",

@@ -39,7 +39,7 @@ namespace KaraManager.Windows
                 }
             });
             connection.On<Message>("ReceiveKaraMessage",
-                                   (value) =>
+                                   (message) =>
                                    {
                                        Dispatcher.BeginInvoke((Action)(() =>
 
@@ -57,7 +57,7 @@ namespace KaraManager.Windows
                                        }));
                                    });
             connection.On<Message>("RemoveKaraMessage",
-                                   (value) =>
+                                   (message) =>
                                    {
                                        Dispatcher.BeginInvoke((Action)(() =>
 

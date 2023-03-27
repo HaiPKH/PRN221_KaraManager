@@ -19,12 +19,12 @@ namespace KaraChatServer.KaraChatHub
                 KaraManagerContext context = new KaraManagerContext();
                 context.Messages.Add(message);
                 context.SaveChanges();
-                //await Clients.All.SendAsync("ReceiveKaraMessage",message);
-                await Clients.Users(message.Receivername,message.Sendername).SendAsync("ReceiveKaraMessage",message);
+                await Clients.All.SendAsync("ReceiveKaraMessage",message);
+                //await Clients.Users(message.Receivername,message.Sendername).SendAsync("ReceiveKaraMessage",message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to send message","An error occurred");
+                MessageBox.Show("Unable to send message" + ex.StackTrace, "An error occurred");
             }           
         }
 
@@ -35,12 +35,12 @@ namespace KaraChatServer.KaraChatHub
                 KaraManagerContext context = new KaraManagerContext();
                 context.Messages.Remove(message);
                 context.SaveChanges();
-                //await Clients.All.SendAsync("RemoveKaraMessage", message);
-                await Clients.Users(message.Receivername, message.Sendername).SendAsync("RemoveKaraMessage", message);
+                await Clients.All.SendAsync("RemoveKaraMessage", message);
+                //await Clients.Users(message.Receivername, message.Sendername).SendAsync("RemoveKaraMessage", message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unable to remove message", "An error occurred");
+                MessageBox.Show("Unable to remove message" + ex.StackTrace, "An error occurred");
             }
         }
     }

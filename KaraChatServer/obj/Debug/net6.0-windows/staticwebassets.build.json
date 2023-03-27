@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Dk3JmNtjXphl2Q4czl1EaUQNnEpiJEuwxhs/2PyQMhg=",
+  "Source": "KaraChatServer",
+  "BasePath": "_content/KaraChatServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

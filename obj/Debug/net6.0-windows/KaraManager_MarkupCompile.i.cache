@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\haiph\source\repos\KaraManager 2.0\KaraManager\obj\Debug\net6.0-windows\
+C:\Users\haiph\source\repos\KaraManager 2.0\obj\Debug\net6.0-windows\
 KaraManager
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\haiph\source\repos\KaraManager 2.0\KaraManager\App.xaml
-9-1976194945
 
-18534547520
-2291767802920
-Windows\AdminMenu.xaml;Windows\AdminMessage.xaml;Windows\CreateInvoice.xaml;Windows\GuestMenu.xaml;Windows\GuestMessage.xaml;Windows\Income.xaml;Windows\Invoices.xaml;Windows\MainWindow.xaml;Windows\Rooms.xaml;
+101271308670
 
-False
+324303136944
+194-1951243044
+KaraManager\App.xaml;KaraManager\Windows\AdminMenu.xaml;KaraManager\Windows\AdminMessage.xaml;KaraManager\Windows\CreateInvoice.xaml;KaraManager\Windows\GuestMenu.xaml;KaraManager\Windows\GuestMessage.xaml;KaraManager\Windows\Income.xaml;KaraManager\Windows\Invoices.xaml;KaraManager\Windows\MainWindow.xaml;KaraManager\Windows\Rooms.xaml;
+
+True
 

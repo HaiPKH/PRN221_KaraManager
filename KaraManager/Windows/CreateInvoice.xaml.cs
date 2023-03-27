@@ -58,6 +58,9 @@ namespace KaraManager
             invoice.Othercost=int.Parse(txtOtherCost.Text.ToString());
             invoice.Totalcost=int.Parse(lbTotalCost.Content.ToString());
             context.Invoices.Add(invoice);
+            //Remove all messages associated with the room
+            Room room = context.Rooms.Where(r => r.Rid == invoice.Rid).FirstOrDefault();
+            context.Messages.RemoveRange(context.Messages.Where(m => m.Sendername == room.Name || m.Receivername == room.Name));
             context.SaveChanges();
             Close();
         }

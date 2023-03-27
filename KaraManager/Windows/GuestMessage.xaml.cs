@@ -57,6 +57,25 @@ namespace KaraManager.Windows
                                            .ToList();
                                        }));
                                    });
+            connection.On<Message>("RemoveKaraMessage",
+                                   (value) =>
+                                   {
+                                       Dispatcher.BeginInvoke((Action)(() =>
+
+                                       {
+                                           //MessageBox.Show("A message was received");
+                                           Account acc = lvAdmins.SelectedItem as Account;
+                                           lvMessages.ItemsSource = context.Messages
+                                           .Where(m => m.Sendername == Application.Current.Properties["Username"] as string &&
+                                                       m.Receivername == acc.Username
+                                                       ||
+                                                       m.Sendername == acc.Username &&
+                                                       m.Receivername == Application.Current.Properties["Username"] as string
+                                                       )
+                                           .OrderBy(m => m.Timesent)
+                                           .ToList();
+                                       }));
+                                   });
 
             lvAdmins.ItemsSource = context.Accounts.Where(a => a.Role == "admin").ToList();
         }
@@ -67,6 +86,7 @@ namespace KaraManager.Windows
             {
                 txtMessage.Visibility = Visibility.Visible;
                 btnSend.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
                 Account acc = lvAdmins.SelectedItem as Account;
                 lvMessages.ItemsSource = context.Messages
                 .Where(m => m.Sendername == Application.Current.Properties["Username"] as string &&
@@ -102,6 +122,12 @@ namespace KaraManager.Windows
             GuestMenu gm = new GuestMenu();
             Application.Current.MainWindow.Content = gm.Content;
             Application.Current.MainWindow.Title = "Guest Menu";
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Message message = lvMessages.SelectedItem as Message;
+            this.connection.InvokeAsync("DeleteMessage", message);
         }
     }
 }

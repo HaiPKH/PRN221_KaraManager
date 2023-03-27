@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager.Windows"
         mc:Ignorable="d"
-        Title="GuestMessage" Height="450" Width="800">
+        Title="GuestMessage" Height="450" Width="860">
     <Grid>
-        <ListView x:Name="lvAdmins" Margin="0,0,556,0" SelectionChanged="lvAdmins_SelectionChanged">
+        <ListView x:Name="lvAdmins" Margin="0,0,574,0" SelectionChanged="lvAdmins_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Admins" Width="240" 
@@ -15,10 +15,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="lvMessages" Margin="244,0,0,81">
+        <ListView x:Name="lvMessages" Margin="286,0,0,81">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Time Sent" Width="100" 
+                    <GridViewColumn Header="Time Sent" Width="130" 
                                     DisplayMemberBinding="{Binding Path=Timesent}"/>
                     <GridViewColumn Header="Sender" Width="100" 
                                     DisplayMemberBinding="{Binding Path=Sendername}"/>
@@ -27,8 +27,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="txtMessage" Visibility="Hidden" HorizontalAlignment="Left" Margin="280,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Height="20"/>
-        <Button x:Name="btnSend" Visibility="Hidden"  Content="Send" HorizontalAlignment="Left" Margin="724,368,0,0" VerticalAlignment="Top" Width="51" Height="20" Click="btnSend_Click"/>
-        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="489,393,0,0" VerticalAlignment="Top" Width="66" Click="btnBack_Click"/>
+        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Margin="291,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="428" Height="20"/>
+        <Button x:Name="btnSend"  Content="Send" HorizontalAlignment="Left" Margin="738,368,0,0" VerticalAlignment="Top" Width="51" Height="20" Click="btnSend_Click"/>
+        <Button x:Name="btnBack"  Content="Back" HorizontalAlignment="Left" Margin="489,393,0,0" VerticalAlignment="Top" Width="66" Click="btnBack_Click"/>
+        <Button x:Name="btnDelete"  Content="Delete" HorizontalAlignment="Left" Margin="798,368,0,0" VerticalAlignment="Top" Width="41" Click="btnDelete_Click"/>
     </Grid>
 </Window>

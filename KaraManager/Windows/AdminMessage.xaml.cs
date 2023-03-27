@@ -56,6 +56,24 @@ namespace KaraManager.Windows
                                            .ToList();
                                        }));
                                    });
+            connection.On<Message>("RemoveKaraMessage",
+                                   (value) =>
+                                   {
+                                       Dispatcher.BeginInvoke((Action)(() =>
+
+                                       {
+                                           //MessageBox.Show("A message was received");
+                                           Room room = lvRooms.SelectedItem as Room;
+                                           lvMessages.ItemsSource = context.Messages
+                                           .Where(m => m.Sendername == Application.Current.Properties["Username"] as string &&
+                                                       m.Receivername == room.Name
+                                                       ||
+                                                       m.Sendername == room.Name &&
+                                                       m.Receivername == Application.Current.Properties["Username"] as string)
+                                           .OrderBy(m => m.Timesent)
+                                           .ToList();
+                                       }));
+                                   });
             lvRooms.ItemsSource = context.Rooms.ToList().OrderBy(r => r.Name);
         }
 
@@ -65,6 +83,7 @@ namespace KaraManager.Windows
             {
                 txtMessage.Visibility = Visibility.Visible;
                 btnSend.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
                 Room room = lvRooms.SelectedItem as Room;
                 lvMessages.ItemsSource = context.Messages
                 .Where(m => m.Sendername == Application.Current.Properties["Username"] as string &&
@@ -100,6 +119,12 @@ namespace KaraManager.Windows
             AdminMenu adm = new AdminMenu();
             Application.Current.MainWindow.Content = adm.Content;
             Application.Current.MainWindow.Title = "Admin Menu";
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Message message = lvMessages.SelectedItem as Message;
+            this.connection.InvokeAsync("DeleteMessage", message);
         }
     }
 }

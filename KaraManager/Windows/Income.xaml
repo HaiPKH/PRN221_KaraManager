@@ -39,5 +39,6 @@
         <Label Content="Total Income:" Foreground="Red" HorizontalAlignment="Left" Margin="520,250,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
         <Label x:Name="lbTotalIncome" Foreground="Red" HorizontalAlignment="Left" Margin="37,250,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
         <Button x:Name="btnLoad" Grid.Column="1" Content="View Income" HorizontalAlignment="Left" Margin="13,217,0,0" VerticalAlignment="Top" Click="btnLoad_Click"/>
+        <Button x:Name="btnBack" Grid.Column="1" Content="Back" HorizontalAlignment="Left" Margin="24,329,0,0" VerticalAlignment="Top" Width="56" Click="btnBack_Click"/>
     </Grid>
 </Window>

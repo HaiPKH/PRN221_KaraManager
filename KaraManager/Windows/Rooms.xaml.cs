@@ -222,11 +222,8 @@ namespace KaraManager
             AdminMenu adm = new AdminMenu();
             Application.Current.MainWindow.Content = adm.Content;
             Application.Current.MainWindow.Title = "Admin Menu";
-        }
-
-        private void txtPricePerHour_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            Application.Current.MainWindow.Width = adm.Width;
+            Application.Current.MainWindow.Height = adm.Height;
         }
     }
 }

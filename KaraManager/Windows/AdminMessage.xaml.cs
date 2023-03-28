@@ -119,6 +119,8 @@ namespace KaraManager.Windows
             AdminMenu adm = new AdminMenu();
             Application.Current.MainWindow.Content = adm.Content;
             Application.Current.MainWindow.Title = "Admin Menu";
+            Application.Current.MainWindow.Width = adm.Width;
+            Application.Current.MainWindow.Height = adm.Height;
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

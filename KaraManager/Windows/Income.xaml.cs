@@ -92,9 +92,13 @@ namespace KaraManager.Windows
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-                AdminMenu adm = new AdminMenu();
-                Application.Current.MainWindow.Content = adm.Content;
-                Application.Current.MainWindow.Title = "Admin Menu";    
+            AdminMenu adm = new AdminMenu();
+            Application.Current.MainWindow.Content = adm.Content;
+            Application.Current.MainWindow.Title = "Admin Menu";
+            Application.Current.MainWindow.Width = adm.Width;
+            Application.Current.MainWindow.Height = adm.Height;
+
+
         }
     }
 }

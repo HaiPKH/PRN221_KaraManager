@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KaraManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="KaraManager 2.0" Height="450" Width="800"
         ResizeMode="NoResize">
     <Grid>
         <Button x:Name="btnAdminLogin" Content="Login as admin" Background="#80ff00" Foreground="Black" BorderBrush="White" HorizontalAlignment="Left" Margin="190,300,0,0" VerticalAlignment="Top" Click="AdminLoginBtn_Click" Height="32" Width="121"/>
